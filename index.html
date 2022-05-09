@@ -19,8 +19,8 @@
   <header id="appbar">
     <div class="appbar-left">
       <img class="logo" src="./images/logo.svg" alt="logo">
-      <a class="arrow appbar-item">Features</a>
-      <a class="arrow appbar-item">Company</a>
+      <a class="arrow appbar-item" onmouseover="openDropdown(0)" id="features">Features</a>
+      <a class="arrow appbar-item" onmouseover="openDropdown(1)" id="company">Company</a>
       <a class="appbar-item">Careers</a>
       <a class="appbar-item">About</a>
     </div>
@@ -31,10 +31,10 @@
     </div>
 
     <div class="dropdown" id="features-dropdown">
-      <a>Todo List</a>
-      <a>Calendar</a>
-      <a>Reminders</a>
-      <a>Planning</a>
+      <a><img class="dropdown-icon" src="./images/icon-todo.svg" alt="todo-icon">Todo List</a>
+      <a><img class="dropdown-icon" src="./images/icon-calendar.svg" alt="todo-icon">Calendar</a>
+      <a><img class="dropdown-icon" src="./images/icon-reminders.svg" alt="todo-icon">Reminders</a>
+      <a><img class="dropdown-icon" src="./images/icon-planning.svg" alt="todo-icon">Planning</a>
     </div>
 
     <div class="dropdown" id="company-dropdown">
@@ -67,5 +67,37 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Dean Yang</a>.
   </div>
+  <script>
+    //reposition dropdowns to be the child of button
+    let featuresDropdown = document.getElementById("features-dropdown")
+    document.getElementById("features").appendChild(featuresDropdown);
+    let companyDropdown = document.getElementById("company-dropdown")
+    document.getElementById("company").appendChild(companyDropdown);
+
+    function openDropdown(n) {
+      undisplayDropdown();
+      if (n === 0) {
+        featuresDropdown.classList.add("show");
+      } else if (n === 1) {
+        companyDropdown.classList.add("show");
+      }
+    }
+    function undisplayDropdown() {
+      companyDropdown.classList.remove("show");
+      featuresDropdown.classList.remove("show");
+    }
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropdown') && !event.target.matches('.arrow')) {
+        var dropdowns = document.getElementsByClassName("dropdown");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }   
+  </script>
 </body>
 </html>
