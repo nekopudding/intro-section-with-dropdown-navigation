@@ -20,9 +20,11 @@ picture {
 }
 
 /* set up the body */
-body {
+html,body {
     min-height: 100vh;
     margin: 0;
+    display: flex;
+    flex-direction: column;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -54,7 +56,7 @@ select {
   }
 }
 
-/* ***************************         **************** */
+/* ****************** Base Styles  **************** */
 :root {
   --clr-dark: hsl(0, 0%, 8%);
   --clr-grey: hsl(0, 0%, 41%);
@@ -62,21 +64,31 @@ select {
   --bp-mobile: 375px;
   --bp-desktop: 1440px;
 }
+html {
+  background-color: var(--clr-light);
+}
 body{ 
   font-weight: 500;
   font-family: 'Epilogue';
   color: var(--clr-grey);
 }
+h1 {
+  font-weight: 700;
+  color:var(--clr-dark);
+  font-size: 80px;
+}
+p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* *************   Appbar Section ***********  */
 #appbar {
   display: flex;
   justify-content: space-between;
-  min-height: 72px;
-  padding: 32px 40px 8px;
+  padding: 32px 40px;
   font-size: 14px;
   user-select: none;
-}
-.appbar-left {
-  padding-top: 0;
 }
 .logo {
   padding-right: 56px;
@@ -132,13 +144,69 @@ body{
 .show {
   display: block !important
 }
-h1 {
-  font-weight: 700;
-  color:var(--clr-dark);
+
+/* ******************** Content Section ********************** */
+main {
+  padding: 36px 160px 64px;
+  display: flex;
+  justify-content: space-between;
 }
-p {
-  font-size: 18px;
+.main-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+.main-left > * + * {
+  margin-top: 56px;
+}
+.description-section {
+  padding-right: 108px;
+}
+.link-section {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.learn-more {
+  color: var(--clr-light);
+  background-color: var(--clr-dark);
+  border: 2px var(--clr-dark) solid;
+  border-radius: 16px;
+  padding: 16px 30px;
+  font-weight: 700;
+}
+.learn-more:hover {
+  color: var(--clr-dark);
+  background-color: var(--clr-light);
+}
+.clients {
+  padding-top: 40px;
+}
+.clients * {
+  margin-bottom: 8px;
+}
+.clients > * + * {
+  margin-left: 36px;
+}
+.main-right {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.main-right img{
+  width: 496px;
+  object-fit: contain;
 }
 
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+/* ******************** Footer Section ********************** */
+.attribution { 
+  flex-grow: 1;
+  font-size: 11px; 
+  text-align: center; 
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 48px;
+}
+.attribution a { 
+  color: hsl(228, 45%, 44%); 
+}
