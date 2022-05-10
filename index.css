@@ -90,8 +90,12 @@ p {
   font-size: 14px;
   user-select: none;
 }
+.appbar-left {
+  display: flex;
+}
 .logo {
   padding-right: 56px;
+  object-fit: contain;
 }
 .appbar-item {
   vertical-align: top;
@@ -147,9 +151,10 @@ p {
 
 /* ******************** Content Section ********************** */
 main {
-  padding: 36px 160px;
+  padding: 36px 10rem;
   display: flex;
   justify-content: space-between;
+  /* flex-direction: column-reverse; */
 }
 .main-left {
   display: flex;
@@ -195,7 +200,7 @@ main {
   flex-grow: 1;
 }
 .main-right img{
-  width: 496px;
+  max-width: 496px;
   object-fit: contain;
 }
 
