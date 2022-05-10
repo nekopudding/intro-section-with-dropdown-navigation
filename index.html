@@ -16,12 +16,13 @@
   <link rel="stylesheet" href="./index.css">
 </head>
 <body>
+  <!------------------------------ Appbar ----------------------------->
   <header id="appbar">
     <div class="appbar-left">
       <img class="logo" src="./images/logo.svg" alt="logo">
-      <div class="page-links">
-        <a class="arrow appbar-item" onmouseover="openDropdown(0)" id="features">Features</a>
-        <a class="arrow appbar-item" onmouseover="openDropdown(1)" id="company">Company</a>
+      <div class="page-links hide">
+        <a class="arrow-down appbar-item" onmouseover="openDropdown(0)" id="features">Features</a>
+        <a class="arrow-down appbar-item" onmouseover="openDropdown(1)" id="company">Company</a>
         <a class="appbar-item">Careers</a>
         <a class="appbar-item">About</a>
       </div>
@@ -29,24 +30,55 @@
     </div>
 
     <div class="appbar-right">
-      <a class="login">Login</a>
-      <a class="register">Register</a>
+      <a class="login hide">Login</a>
+      <a class="register hide">Register</a>
+      <img src="./images/icon-menu.svg" alt="menu icon" onclick="toggleMenu()">
     </div>
 
-    <div class="dropdown" id="features-dropdown">
+    <div class="dropdown hide" id="features-dropdown">
       <a><img class="dropdown-icon" src="./images/icon-todo.svg" alt="todo-icon">Todo List</a>
       <a><img class="dropdown-icon" src="./images/icon-calendar.svg" alt="todo-icon">Calendar</a>
       <a><img class="dropdown-icon" src="./images/icon-reminders.svg" alt="todo-icon">Reminders</a>
       <a><img class="dropdown-icon" src="./images/icon-planning.svg" alt="todo-icon">Planning</a>
     </div>
 
-    <div class="dropdown" id="company-dropdown">
+    <div class="dropdown hide" id="company-dropdown">
       <a>History</a>
       <a>Our Team</a>
       <a>Blog</a>
     </div>
   </header>
 
+  <!------------------------------ Mobile Menu ----------------------------->
+  <div class="dimmer hide"></div>
+  <div id="mobile-menu" class="hide">
+    <div class="close-menu">
+      <img src="./images/icon-close-menu.svg" alt="close menu" onclick="toggleMenu()">
+    </div>
+    <div>
+      <a class="arrow-down menu-link" onclick="toggleMobileDropdown(0)" id="features-mobile">Features</a>
+      <div class="dropdown-mobile hide" id="features-dropdown-mobile">
+        <div class="menu-link"><a><img class="dropdown-icon" src="./images/icon-todo.svg" alt="todo-icon">Todo List</a></div>
+        <div class="menu-link"><a><img class="dropdown-icon" src="./images/icon-calendar.svg" alt="todo-icon">Calendar</a></div>
+        <div class="menu-link"><a><img class="dropdown-icon" src="./images/icon-reminders.svg" alt="todo-icon">Reminders</a></div>
+        <div class="menu-link"><a><img class="dropdown-icon" src="./images/icon-planning.svg" alt="todo-icon">Planning</a></div>
+      </div>
+    </div>
+    <div>
+      <a class="arrow-down menu-link" onclick="toggleMobileDropdown(1)" id="company-mobile">Company</a>
+      <div class="dropdown-mobile hide" id="company-dropdown-mobile">
+        <div class="menu-link"><a>History</a></div>
+        <div class="menu-link"><a>Our Team</a></div>
+        <div class="menu-link"><a>Blog</a></div>
+      </div>
+    </div>
+    <div class="menu-link"><a >Careers</a></div>
+    <div class="menu-link"><a >About</a></div>
+    <div class="menu-button"><a class="login">Login</a></div>
+    <div class="menu-button"><a class="register">Register</a></div>
+  </div>
+
+  <!------------------------------ Main ----------------------------->
   <main>
     <div class="main-left">
       <div class="title-section">
@@ -62,14 +94,14 @@
         <a class="learn-more">Learn more</a>
       </div>
       <div class="clients">
-        <img src="./images/client-databiz.svg" alt="databiz-logo">
-        <img src="./images/client-audiophile.svg" alt="audiophile-logo">
-        <img src="./images/client-meet.svg" alt="meet-logo">
-        <img src="./images/client-maker.svg" alt="maker-logo">
+        <div><img src="./images/client-databiz.svg" alt="databiz-logo"></div>
+        <div><img src="./images/client-audiophile.svg" alt="audiophile-logo"></div>
+        <div><img src="./images/client-meet.svg" alt="meet-logo"></div>
+        <div><img src="./images/client-maker.svg" alt="maker-logo"></div>
       </div>
     </div>
     <div class="main-right">
-      <img src="./images/image-hero-desktop.png" alt="hero">
+      <img src="./images/image-hero-mobile.png" alt="hero">
     </div>
   </main>
   
@@ -83,35 +115,77 @@
   
   <script>
     //reposition dropdowns to be the child of button
-    let featuresDropdown = document.getElementById("features-dropdown")
-    document.getElementById("features").appendChild(featuresDropdown);
-    let companyDropdown = document.getElementById("company-dropdown")
-    document.getElementById("company").appendChild(companyDropdown);
+    let featuresDropdown = document.getElementById("features-dropdown");
+    let features = document.getElementById("features");
+    features.appendChild(featuresDropdown);
+    let companyDropdown = document.getElementById("company-dropdown");
+    let company = document.getElementById("company");
+    company.appendChild(companyDropdown);
 
+    //desktop functions
     function openDropdown(n) {
       undisplayDropdown(); //close other dropdowns
       if (n === 0) {
-        featuresDropdown.classList.add("show");
+        featuresDropdown.classList.remove("hide");
+        features.classList.replace('arrow-down', 'arrow-up');
       } else if (n === 1) {
-        companyDropdown.classList.add("show");
+        companyDropdown.classList.remove("hide");
+        company.classList.replace('arrow-down', 'arrow-up');
       }
     }
     function undisplayDropdown() {
-      companyDropdown.classList.remove("show");
-      featuresDropdown.classList.remove("show");
+      features.classList.replace('arrow-up', 'arrow-down');
+      company.classList.replace('arrow-up', 'arrow-down');
+      companyDropdown.classList.add("hide");
+      featuresDropdown.classList.add("hide");
     }
     window.onclick = function(event) { //close dropdown on click out
-      if (!event.target.matches('.dropdown') && !event.target.matches('.arrow')) {
+      if (!event.target.matches('.dropdown') && !event.target.matches('.arrow-up')) {
         var dropdowns = document.getElementsByClassName("dropdown");
         var i;
         for (i = 0; i < dropdowns.length; i++) {
           var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
+          if (!openDropdown.classList.contains('hide')) {
+            openDropdown.classList.add('hide');
           }
         }
       }
     }   
+
+    //mobile functions
+    let appbar = document.getElementById("appbar");
+    let body = document.getElementsByTagName("body");
+    let mobileMenu = document.getElementById("mobile-menu");
+    let dimmer = document.getElementsByClassName("dimmer");
+    let featuresMobile = document.getElementById("features-mobile");
+    let companyMobile = document.getElementById("company-mobile");
+    let featuresDropdownMobile = document.getElementById("features-dropdown-mobile");
+    let companyDropdownMobile = document.getElementById("company-dropdown-mobile");
+
+    // appbar.classList.add("fixed");
+
+    function toggleMenu() {
+      mobileMenu.classList.toggle('hide');
+      dimmer[0].classList.toggle('hide');
+      body[0].classList.toggle("disable-scroll");
+    }
+    function toggleMobileDropdown(n) {
+      if (n === 0) {
+        if (featuresMobile.classList.contains('arrow-down')) featuresMobile.classList.replace('arrow-down', 'arrow-up');
+        else featuresMobile.classList.replace('arrow-up', 'arrow-down');
+        featuresDropdownMobile.classList.toggle("hide");
+      } else if (n === 1) {
+        if (companyMobile.classList.contains('arrow-down')) companyMobile.classList.replace('arrow-down', 'arrow-up');
+        else companyMobile.classList.replace('arrow-up', 'arrow-down');
+        companyDropdownMobile.classList.toggle("hide");
+      }
+    }
+    function closeMobileDropdown() {
+      featuresMobile.classList.replace('arrow-up', 'arrow-down');
+      companyMobile.classList.replace('arrow-up', 'arrow-down');
+      companyDropdownMobile.classList.add('hide');
+      featuresDropdownMobile.classList.add("hide");
+    }
   </script>
 </body>
 </html>
