@@ -147,7 +147,7 @@ p {
 
 /* ******************** Content Section ********************** */
 main {
-  padding: 36px 160px 64px;
+  padding: 36px 160px;
   display: flex;
   justify-content: space-between;
 }
@@ -156,12 +156,13 @@ main {
   flex-direction: column;
   justify-content: flex-end;
   flex-grow: 1;
+  margin-right: 100px;
 }
 .main-left > * + * {
   margin-top: 56px;
 }
 .description-section {
-  padding-right: 108px;
+  padding-right: 92px;
 }
 .link-section {
   padding-top: 16px;
@@ -189,9 +190,9 @@ main {
   margin-left: 36px;
 }
 .main-right {
-  width: 100%;
   display: flex;
   justify-content: flex-end;
+  flex-grow: 1;
 }
 .main-right img{
   width: 496px;
