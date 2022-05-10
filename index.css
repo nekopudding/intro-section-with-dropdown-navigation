@@ -75,10 +75,10 @@ body{
 h1 {
   font-weight: 700;
   color:var(--clr-dark);
-  font-size: 36px;
+  font-size: 80px;
 }
 p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.5;
 }
 
@@ -86,13 +86,14 @@ p {
 #appbar {
   display: flex;
   justify-content: space-between;
-  padding: 24px 16px;
+  padding: 32px 40px;
   font-size: 14px;
   user-select: none;
   background-color: var(--clr-light);
 }
 .appbar-left {
   display: flex;
+  flex-grow: 1;
 }
 .hide {
   display: none;
@@ -159,25 +160,22 @@ p {
 
 /* ******************** Content Section ********************** */
 main {
-  padding: 0px 0px;
+  padding: 36px 160px;
   display: flex;
-  justify-content: center;
-  flex-direction: column-reverse;
+  justify-content: space-between;
 }
 .main-left {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   flex-grow: 1;
-  margin-right: 0px;
-  margin-top: 36px;
-  text-align: center;
+  margin-right: 100px;
 }
 .main-left > * + * {
-  margin-top: 24px;
+  margin-top: 56px;
 }
 .description-section {
-  padding: 0px 12px;
+  padding-right: 92px;
 }
 .link-section {
   padding-top: 20px;
@@ -196,31 +194,36 @@ main {
   background-color: var(--clr-light);
 }
 .clients {
-  padding: 20px 16px 0px;
-  height: 56px;
+  padding-top: 40px;
   display: flex;
 }
 .clients > * {
   margin-bottom: 8px;
-  width: 25%;
-  height: 28px;
+  vertical-align: middle;
+  height: 40px;
+}
+.helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
 .clients img {
-  width: 100%;
-  height: 100%;
+  vertical-align: middle;
   object-fit: contain;
 }
 .clients > * + * {
-  margin-left: 20px;
+  margin-left: 36px;
 }
 .main-right {
   display: flex;
   justify-content: flex-end;
-  flex-grow: 1;
+  flex-shrink: 1;
+  position: relative;
 }
-.main-right img{
-  max-width: 100%;
+.hero{
+  max-width: 496px;
   object-fit: contain;
+  overflow: hidden;
 }
 
 /* ******************** Footer Section ********************** */
@@ -286,4 +289,68 @@ main {
 }
 .dropdown-mobile > * {
   margin-top: 24px;
+}
+
+/* Breakpoints */
+@media only screen and (max-width: 1400px) {
+  h1 {
+    font-size: 64px;
+  }
+  main {
+    padding: 24px 64px;
+  }
+  .hero {
+    max-width: 100%;
+  }
+  .main-left > * + * {
+    margin-top: 24px;
+  }
+  .main-left {
+    margin-right: 36px;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  h1 {
+    font-size: 36px;
+  }
+  p {
+    font-size: 16px;
+  }
+  #appbar {
+    padding: 24px 20px;
+  }
+  main {
+    padding: 0px 0px;
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+  .main-left {
+    margin-right: 0px;
+    margin-top: 36px;
+    text-align: center;
+  }
+  .description-section {
+    padding: 0px 12px;
+  }
+  .clients {
+    padding: 20px 16px 0px;
+    height: 56px;
+    display: flex;
+  }
+  .clients > * {
+    width: 25%;
+    height: 28px;
+  }
+  .clients img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .clients > * + * {
+    margin-left: 20px;
+  }
+  .main-right img{
+    width: 100%;
+    max-width: none;
+  }
 }

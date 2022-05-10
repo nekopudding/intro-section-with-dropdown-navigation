@@ -64,6 +64,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - box shadow for dropdown
 - positioning the dropdown 
 - text alignment for appbar items with the logo
+- vertical alignment for clients http://jsfiddle.net/kizu/4RPFa/4570/
+- mobile design - what can be modified, what needs to be added
 Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
 
 To see how you can add code snippets, see below:
