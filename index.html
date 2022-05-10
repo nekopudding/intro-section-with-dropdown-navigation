@@ -21,8 +21,8 @@
     <div class="appbar-left">
       <img class="logo" src="./images/logo.svg" alt="logo">
       <div class="page-links">
-        <a class="arrow-down appbar-item" onmouseover="openDropdown(0)" id="features">Features</a>
-        <a class="arrow-down appbar-item" onmouseover="openDropdown(1)" id="company">Company</a>
+        <a class="arrow-down appbar-item" onclick="toggleDropdown(0)" id="features">Features</a>
+        <a class="arrow-down appbar-item" onclick="toggleDropdown(1)" id="company">Company</a>
         <a class="appbar-item">Careers</a>
         <a class="appbar-item">About</a>
       </div>
@@ -113,98 +113,6 @@
     </div>
   </footer>
   
-  <script>
-    //reposition dropdowns to be the child of button
-    let featuresDropdown = document.getElementById("features-dropdown");
-    let features = document.getElementById("features");
-    features.appendChild(featuresDropdown);
-    let companyDropdown = document.getElementById("company-dropdown");
-    let company = document.getElementById("company");
-    company.appendChild(companyDropdown);
-
-    //desktop functions
-    function openDropdown(n) {
-      undisplayDropdown(); //close other dropdowns
-      if (n === 0) {
-        featuresDropdown.classList.remove("hide");
-        features.classList.replace('arrow-down', 'arrow-up');
-      } else if (n === 1) {
-        companyDropdown.classList.remove("hide");
-        company.classList.replace('arrow-down', 'arrow-up');
-      }
-    }
-    function undisplayDropdown() {
-      features.classList.replace('arrow-up', 'arrow-down');
-      company.classList.replace('arrow-up', 'arrow-down');
-      companyDropdown.classList.add("hide");
-      featuresDropdown.classList.add("hide");
-    }
-    window.onclick = function(event) { //close dropdown on click out
-      if (!event.target.matches('.dropdown') && !event.target.matches('.arrow-up')) {
-        var dropdowns = document.getElementsByClassName("dropdown");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (!openDropdown.classList.contains('hide')) {
-            openDropdown.classList.add('hide');
-          }
-        }
-      }
-    }   
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    //mobile functions
-    function handleResize() {
-      if (window.innerWidth <= 1000) {
-        console.log("changing to mobile layout...");
-        document.getElementsByClassName('page-links')[0].classList.add('hide');
-        document.getElementsByClassName('login')[0].classList.add('hide');
-        document.getElementsByClassName('register')[0].classList.add('hide');
-        document.getElementsByClassName('menu-icon')[0].classList.remove('hide');
-        document.getElementsByClassName('hero')[0].src = "./images/image-hero-mobile.png"
-      } else {
-        document.getElementsByClassName('page-links')[0].classList.remove('hide');
-        document.getElementsByClassName('login')[0].classList.remove('hide');
-        document.getElementsByClassName('register')[0].classList.remove('hide');
-        document.getElementsByClassName('menu-icon')[0].classList.add('hide');
-        document.getElementsByClassName('hero')[0].src = "./images/image-hero-desktop.png"
-      }
-    }
-
-    let appbar = document.getElementById("appbar");
-    let body = document.getElementsByTagName("body");
-    let mobileMenu = document.getElementById("mobile-menu");
-    let dimmer = document.getElementsByClassName("dimmer");
-    let featuresMobile = document.getElementById("features-mobile");
-    let companyMobile = document.getElementById("company-mobile");
-    let featuresDropdownMobile = document.getElementById("features-dropdown-mobile");
-    let companyDropdownMobile = document.getElementById("company-dropdown-mobile");
-
-    // appbar.classList.add("fixed");
-
-    function toggleMenu() {
-      mobileMenu.classList.toggle('hide');
-      dimmer[0].classList.toggle('hide');
-      body[0].classList.toggle("disable-scroll");
-    }
-    function toggleMobileDropdown(n) {
-      if (n === 0) {
-        if (featuresMobile.classList.contains('arrow-down')) featuresMobile.classList.replace('arrow-down', 'arrow-up');
-        else featuresMobile.classList.replace('arrow-up', 'arrow-down');
-        featuresDropdownMobile.classList.toggle("hide");
-      } else if (n === 1) {
-        if (companyMobile.classList.contains('arrow-down')) companyMobile.classList.replace('arrow-down', 'arrow-up');
-        else companyMobile.classList.replace('arrow-up', 'arrow-down');
-        companyDropdownMobile.classList.toggle("hide");
-      }
-    }
-    function closeMobileDropdown() {
-      featuresMobile.classList.replace('arrow-up', 'arrow-down');
-      companyMobile.classList.replace('arrow-up', 'arrow-down');
-      companyDropdownMobile.classList.add('hide');
-      featuresDropdownMobile.classList.add("hide");
-    }
-  </script>
+  <script src="./index.js"></script>
 </body>
 </html>
