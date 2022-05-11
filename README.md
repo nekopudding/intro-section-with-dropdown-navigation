@@ -30,8 +30,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: (https://your-solution-url.com)
-- Live Site URL: (https://your-live-site-url.com)
+- Live Site URL: (https://nekopudding.github.io/intro-section-with-dropdown-navigation/)
 
 ## My process
 
@@ -45,33 +44,33 @@ Users should be able to:
 ### What I learned
 Creating a dropdown menu from scratch - I learned to use the drop-shadow filter, and positioned the dropdown by attaching it as a child to the button.
 ```html
-    <div>
-      <a class="arrow-down menu-link" onclick="toggleMobileDropdown(0)" id="features-mobile">Features</a>
-      <div class="dropdown-mobile hide" id="features-dropdown-mobile">
-        <div class="menu-link">
-          <a>
-            <img class="dropdown-icon" src="./images/icon-todo.svg" alt="todo-icon">
-            Todo List
-          </a>
-        </div>
-        <div class="menu-link">
-          <a>
-            <img class="dropdown-icon" src="./images/icon-calendar.svg" alt="todo-icon">
-            Calendar
-          </a>
-        </div>
-        ...
-      </div>
+<div>
+  <a class="arrow-down menu-link" onclick="toggleMobileDropdown(0)" id="features-mobile">Features</a>
+  <div class="dropdown-mobile hide" id="features-dropdown-mobile">
+    <div class="menu-link">
+      <a>
+        <img class="dropdown-icon" src="./images/icon-todo.svg" alt="todo-icon">
+        Todo List
+      </a>
     </div>
+    <div class="menu-link">
+      <a>
+        <img class="dropdown-icon" src="./images/icon-calendar.svg" alt="todo-icon">
+        Calendar
+      </a>
+    </div>
+    ...
+  </div>
+</div>
 ```
 
 Vertical alignment for appbar items with the logo, and client logos - I learned about the vertical alignment attribute and utilized it to align images to the top and center of the container.
 - [Vertically Align to Center](http://jsfiddle.net/kizu/4RPFa/4570/)
 ```html
-  <div>
-    <span class="helper"></span> <!--Helper for vertical alignment -->
-    <img src="./images/client-databiz.svg" alt="databiz-logo">
-  </div>
+<div>
+  <span class="helper"></span> <!--Helper for vertical alignment -->
+  <img src="./images/client-databiz.svg" alt="databiz-logo">
+</div>
 ```
 Used the Lobotamized owl to space list items.
 ```css
@@ -81,7 +80,7 @@ Used the Lobotamized owl to space list items.
 ```
 Mobile design - I put my previous knowledge of CSS media queries to use by specifying styles at specific width breakpoints for a responsive website
 ```css
-  @media only screen and (max-width: 1000px) {}
+@media only screen and (max-width: 1000px) {}
 ```
 ### Useful resources
 
