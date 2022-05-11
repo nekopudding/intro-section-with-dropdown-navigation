@@ -42,6 +42,15 @@ Users should be able to:
 - Vanilla JS
 
 ### What I learned
+Using CSS variables and utility classes for commonly used attribute values.
+```css
+:root {
+  --clr-dark: hsl(0, 0%, 8%);
+  --clr-grey: hsl(0, 0%, 41%);
+  --clr-light: hsl(0, 0%, 98%);
+}
+```
+
 Creating a dropdown menu from scratch - I learned to use the drop-shadow filter, and positioned the dropdown by attaching it as a child to the button.
 ```html
 <div>
