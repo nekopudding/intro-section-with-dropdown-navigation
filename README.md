@@ -88,5 +88,5 @@ Mobile design - I put my previous knowledge of CSS media queries to use by speci
 
 ## Author
 
-<!-- - Website - [Dean Yang](https://www.your-site.com) -->
+- Website - [Dean Yang](https://nekopudding.github.io/portfolio/)
 - Frontend Mentor - [@nekopudding](https://www.frontendmentor.io/profile/nekopudding)
